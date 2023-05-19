@@ -1,0 +1,43 @@
+[tool.kedro]
+package_name = "kedro_astro"
+project_name = "Kedro Astro"
+kedro_init_version = "0.18.8"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = """
+--cov-report term-missing \
+--cov src/kedro_astro -ra"""
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
+
+[tool.poetry]
+name = "kedro-astro"
+version = "0.1.0"
+description = "A repo for testing astronomy datasets with Kedro."
+authors = ["Jordan Barlow <jk.barlow@icloud.com>"]
+readme = "README.md"
+packages = [{include = "kedro_astro", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+kedro = "^0.18.8"
+astropy = {version = "^5.2.2", extras = ["all"]}
+
+
+[tool.poetry.group.dev.dependencies]
+kedro-viz = "^6.1.0"
+jupyter = "^1.0.0"
+black = "^23.3.0"
+flake8 = "^6.0.0"
+conda-lock = "^1.4.0"
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

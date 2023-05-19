@@ -1,0 +1,26 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+dark_frame:
+  type: kedro_astro.extras.datasets.astropy_dataset.FITSDataSet
+  filepath: data/01_raw/dark_frame.fits
+  hdu_index: 0
+  load_args:
+    lazy_load_hdus: False
+
+sun_171:
+  type: kedro_astro.extras.datasets.astropy_dataset.FITSDataSet
+  filepath: data/01_raw/sun_171.fits
+  hdu_index: 0
+
+sun_195:
+  type: kedro_astro.extras.datasets.astropy_dataset.FITSDataSet
+  filepath: data/01_raw/sun_195.fits
+  hdu_index: 0
+
+sunpy_map:
+  type: kedro_astro.extras.datasets.astropy_dataset.FITSDataSet
+  filepath: data/01_raw/sunpy_map.fits
+  hdu_index: 1
